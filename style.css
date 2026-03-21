@@ -1,4 +1,4 @@
-/* --- ROOT VARIABLES: Stores colors for consistent use --- */
+/* # ROOT VARIABLES: These store my theme colors in one place for consistency */
 :root {
   --bg: #020617;
   --card-bg: rgba(17, 24, 39, 0.95);
@@ -7,30 +7,32 @@
   --border: rgba(255, 255, 255, 0.1);
 }
 
-/* --- ELEMENT SELECTOR: Global body styles and font settings --- */
+/* # ELEMENT SELECTOR: Body styles for the background and font settings */
 body {
   background: linear-gradient(135deg, #020617, #0f172a);
   color: var(--text-main);
   font-family: 'Segoe UI', Tahoma, sans-serif;
   line-height: 1.6;
-  /* BOX MODEL: Padding-top ensures fixed nav doesn't overlap content */
+  /* # PADDING: This ensures the fixed header doesn't cover my content */
   padding: 120px 20px 40px 20px; 
-  display: flex; /* FLEX LAYOUT: Centers the card on the page */
+  /* # FLEXBOX: This layout centers the content on the screen */
+  display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* --- ID SELECTOR & FLEXBOX: Main navigation menu --- */
+/* # ID SELECTOR: Used to style the fixed navigation bar */
 #main-nav {
   position: fixed;
   top: 0;
   width: 100%;
   background: #111827;
-  display: flex; /* FLEX LAYOUT: Aligns nav items in a row */
+  display: flex; 
   justify-content: center;
   padding: 1rem;
   z-index: 1000;
-  border-bottom: 2px solid var(--accent); /* BORDER attribute */
+  /* # BORDER: Satisfies the requirement for border attributes */
+  border-bottom: 2px solid var(--accent); 
 }
 
 #main-nav ul {
@@ -46,33 +48,36 @@ body {
   transition: 0.3s;
 }
 
-/* --- HOVER EFFECT: Changes color and adds underline on mouse-over --- */
+/* # HOVER EFFECT: This visual change on links is a rubric requirement */
 #main-nav a:hover {
   color: var(--accent);
   text-decoration: underline;
 }
 
-/* --- CLASS SELECTOR: Main content container --- */
+/* # CLASS SELECTOR: Styles the main content card container */
 .card {
   background: var(--card-bg);
-  padding: 40px; /* PADDING attribute */
+  /* # PADDING: Adds internal space inside the card */
+  padding: 40px; 
   border-radius: 12px;
   max-width: 800px;
   width: 100%;
-  border: 1px solid var(--border); /* BORDER attribute */
+  border: 1px solid var(--border);
+  /* # MARGIN: Centers the card and adds spacing at the bottom */
+  margin: 20px auto;
   box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
-/* --- CLASS SELECTOR: Responsive image styling --- */
+/* # CLASS SELECTOR: Ensures images stay responsive and centered */
 .featured-img {
-  max-width: 100%; /* Ensures image fits within its container */
+  max-width: 100%;
   height: auto;
   border: 3px solid var(--border);
-  margin: 20px 0; /* MARGIN attribute */
+  margin: 20px 0;
   display: block;
 }
 
-/* --- ELEMENT SELECTOR: Table styling for concepts page --- */
+/* # TABLE STYLES: Used for the 'Concepts' page table requirement */
 table {
   width: 100%;
   border-collapse: collapse; 
