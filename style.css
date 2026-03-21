@@ -1,140 +1,88 @@
-/* 1. Root Variables & Reset */
+/* 1. ELEMENT SELECTORS */
 :root {
   --bg: #020617;
-  --card-bg: rgba(17, 24, 39, 0.9);
+  --card-bg: rgba(17, 24, 39, 0.95);
   --text-main: #e5e7eb;
-  --text-muted: #9ca3af;
-  --accent: #38bdf8; /* The blue color from your original index */
+  --accent: #38bdf8;
   --border: rgba(255, 255, 255, 0.1);
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: system-ui, -apple-system, sans-serif;
-}
-
-/* 2. Body Styling */
 body {
-  min-height: 100vh;
   background: linear-gradient(135deg, #020617, #0f172a);
   color: var(--text-main);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Font settings */
   line-height: 1.6;
-  /* Adding padding-top so content doesn't hide under the fixed nav */
-  padding: 100px 20px 40px 20px; 
+  padding: 100px 20px 40px 20px; /* Margins/Paddings */
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* 3. Navigation (Flexbox Requirement) */
-header {
+/* 2. ID SELECTOR & FLEXBOX LAYOUT */
+#main-nav {
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(15, 23, 42, 0.95);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--border);
-  padding: 1rem 0;
-  z-index: 1000;
-}
-
-nav ul {
-  display: flex; /* Flexbox Layout */
+  background: #111827;
+  display: flex; /* Flexbox implementation */
   justify-content: center;
-  list-style: none;
-  gap: 2rem;
+  padding: 1rem;
+  z-index: 1000;
+  border-bottom: 2px solid var(--accent); /* Border */
 }
 
-nav a {
-  color: var(--text-muted);
+#main-nav ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+#main-nav a {
+  color: white;
   text-decoration: none;
-  font-weight: 500;
-  font-size: 0.95rem;
   transition: 0.3s;
 }
 
-/* 4. Hover Effect (Requirement) */
-nav a:hover {
+/* HOVER EFFECT REQUIREMENT */
+#main-nav a:hover {
   color: var(--accent);
+  text-decoration: underline;
 }
 
-/* 5. Main Content Card (Paddings, Margins, Borders Requirement) */
+/* 3. CLASS SELECTORS */
 .card {
   background: var(--card-bg);
-  padding: 2.5rem;             /* Padding Requirement */
-  margin-bottom: 2rem;         /* Margin Requirement */
-  border: 1px solid var(--border); /* Border Requirement */
-  border-radius: 16px;
+  padding: 40px; /* Padding */
+  border-radius: 12px;
   max-width: 800px;
   width: 100%;
-  box-shadow: 0 25px 50px rgba(0,0,0,0.5);
-}
-
-h1, h2 {
-  color: white;
-  margin-bottom: 1.5rem;
-}
-
-p {
-  margin-bottom: 1.2rem;
-  color: var(--text-muted);
-}
-
-/* 6. Image Styling (The Amazon GIF) */
-.image-container {
-  text-align: center;
-  margin: 2rem 0;
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
 .featured-img {
-  max-width: 100%;    /* Ensures image never breaks the layout */
+  max-width: 100%;
   height: auto;
-  border-radius: 8px;
-  border: 4px solid #1e293b; /* A thicker border for the image */
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  border: 3px solid var(--border);
+  margin: 20px 0;
 }
 
-.caption {
-  font-size: 0.85rem;
-  font-style: italic;
-  margin-top: 0.5rem;
-  color: var(--accent);
-}
-
-/* 7. Table Styling (For concepts.html) */
 table {
   width: 100%;
-  border-collapse: collapse;
-  margin: 1.5rem 0;
+  border-collapse: collapse; /* Table styling */
+  margin-top: 20px;
 }
 
 th, td {
-  padding: 12px;
   border: 1px solid var(--border);
+  padding: 12px;
   text-align: left;
 }
 
-th {
-  background: rgba(56, 189, 248, 0.1);
-  color: var(--accent);
-}
+th { background-color: var(--accent); color: black; }
 
-/* 8. Footer */
 footer {
+  margin-top: 40px;
   text-align: center;
-  margin-top: auto;
-  padding: 2rem;
-  font-size: 0.85rem;
-  color: var(--text-muted);
-}
-
-footer a {
-  color: var(--accent);
-  text-decoration: none;
-}
-
-footer a:hover {
-  text-decoration: underline;
+  font-size: 0.8rem;
 }
