@@ -1,9 +1,11 @@
+/* 1. Root Variables & Reset */
 :root {
-  --bg: #0f172a;
-  --card: #111827;
-  --text: #e5e7eb;
-  --muted: #9ca3af;
-  --accent: #38bdf8;
+  --bg: #020617;
+  --card-bg: rgba(17, 24, 39, 0.9);
+  --text-main: #e5e7eb;
+  --text-muted: #9ca3af;
+  --accent: #38bdf8; /* The blue color from your original index */
+  --border: rgba(255, 255, 255, 0.1);
 }
 
 * {
@@ -13,62 +15,95 @@
   font-family: system-ui, -apple-system, sans-serif;
 }
 
+/* 2. Body Styling */
 body {
   min-height: 100vh;
   background: linear-gradient(135deg, #020617, #0f172a);
-  color: var(--text);
-  padding: 80px 20px 40px 20px;
+  color: var(--text-main);
+  line-height: 1.6;
+  /* Adding padding-top so content doesn't hide under the fixed nav */
+  padding: 100px 20px 40px 20px; 
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* Navigation - Flexbox Requirement */
+/* 3. Navigation (Flexbox Requirement) */
 header {
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(15, 23, 42, 0.9);
+  background: rgba(15, 23, 42, 0.95);
   backdrop-filter: blur(10px);
-  padding: 1rem;
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 0;
   z-index: 1000;
 }
 
 nav ul {
-  display: flex;
+  display: flex; /* Flexbox Layout */
   justify-content: center;
   list-style: none;
-  gap: 1.5rem;
-  flex-wrap: wrap;
+  gap: 2rem;
 }
 
 nav a {
-  color: var(--muted);
+  color: var(--text-muted);
   text-decoration: none;
-  font-size: 0.9rem;
+  font-weight: 500;
+  font-size: 0.95rem;
   transition: 0.3s;
 }
 
-/* Hover Effect Requirement */
+/* 4. Hover Effect (Requirement) */
 nav a:hover {
   color: var(--accent);
 }
 
+/* 5. Main Content Card (Paddings, Margins, Borders Requirement) */
 .card {
-  background: rgba(17, 24, 39, 0.9);
-  padding: 2.5rem;
+  background: var(--card-bg);
+  padding: 2.5rem;             /* Padding Requirement */
+  margin-bottom: 2rem;         /* Margin Requirement */
+  border: 1px solid var(--border); /* Border Requirement */
   border-radius: 16px;
   max-width: 800px;
   width: 100%;
   box-shadow: 0 25px 50px rgba(0,0,0,0.5);
-  border: 1px solid rgba(255,255,255,0.05); /* Border Requirement */
-  margin-bottom: 2rem;
 }
 
-h1, h2 { color: white; margin-bottom: 1rem; }
-p { color: var(--muted); line-height: 1.6; margin-bottom: 1rem; }
+h1, h2 {
+  color: white;
+  margin-bottom: 1.5rem;
+}
 
-/* Table Requirement */
+p {
+  margin-bottom: 1.2rem;
+  color: var(--text-muted);
+}
+
+/* 6. Image Styling (The Amazon GIF) */
+.image-container {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.featured-img {
+  max-width: 100%;    /* Ensures image never breaks the layout */
+  height: auto;
+  border-radius: 8px;
+  border: 4px solid #1e293b; /* A thicker border for the image */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.caption {
+  font-size: 0.85rem;
+  font-style: italic;
+  margin-top: 0.5rem;
+  color: var(--accent);
+}
+
+/* 7. Table Styling (For concepts.html) */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -77,26 +112,29 @@ table {
 
 th, td {
   padding: 12px;
-  border: 1px solid rgba(255,255,255,0.1);
+  border: 1px solid var(--border);
   text-align: left;
 }
 
-th { background: rgba(56, 189, 248, 0.1); color: var(--accent); }
-
-/* List Requirement */
-ul.resource-list {
-  margin-left: 20px;
-  color: var(--muted);
+th {
+  background: rgba(56, 189, 248, 0.1);
+  color: var(--accent);
 }
 
-.featured-img {
-  width: 100%;
-  border-radius: 8px;
-  margin: 1rem 0;
-}
-
+/* 8. Footer */
 footer {
   text-align: center;
-  font-size: 0.8rem;
-  color: var(--muted);
+  margin-top: auto;
+  padding: 2rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+footer a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
 }
