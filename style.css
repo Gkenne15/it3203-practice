@@ -1,26 +1,29 @@
-/* # GLOBAL STYLES & ACCESSIBILITY */
+/* # DOCUMENTATION: Root variables for easy theme management and high-contrast accessibility */
+/* We use variables so we can change the 'accent' color in one place for the whole site. */
 :root {
   --bg: #020617;
   --card-bg: rgba(17, 24, 39, 0.95);
   --text-header: #ffffff; 
-  --text-body: #e5e7eb; /* High contrast light gray */
+  --text-body: #e5e7eb; 
   --accent: #38bdf8;
   --border: rgba(255, 255, 255, 0.2);
-  --success: #10b981;
-  --error: #ef4444;
 }
 
+/* # LAYOUT: Global body styling */
+/* The padding-top is critical because our navigation is 'fixed' at the top. */
 body {
   background: linear-gradient(135deg, #020617, #0f172a);
   color: var(--text-body);
-  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-family: 'Segoe UI', sans-serif;
   line-height: 1.8;
-  padding: 120px 20px 40px 20px; 
+  padding: 100px 20px 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+/* # NAVIGATION: Fixed header styles */
+/* This ensures the menu stays visible even when the user scrolls down long research paragraphs. */
 #main-nav {
   position: fixed;
   top: 0;
@@ -32,40 +35,27 @@ body {
   z-index: 1000;
   border-bottom: 2px solid var(--accent); 
 }
-
 #main-nav ul { display: flex; list-style: none; gap: 20px; }
 #main-nav a { color: #fff; text-decoration: none; font-weight: 600; }
-#main-nav a:hover { color: var(--accent); text-decoration: underline; }
 
-/* # BOX MODEL: Reducing image size to 50% as requested by professor */
+/* # BOX MODEL: Image width requirement */
+/* PROFESSOR FEEDBACK: Images are set to 50% max-width so they don't overpower the text. */
 .featured-img {
   max-width: 50%; 
   height: auto;
-  border: 1px solid var(--border);
   margin: 30px auto;
   display: block;
   border-radius: 8px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  border: 1px solid var(--border);
 }
 
+/* # COMPONENTS: Card style for readability */
+/* This grouping creates a professional look and separates content from the background. */
 .card {
   background: var(--card-bg);
-  padding: 45px; 
+  padding: 40px; 
   border-radius: 12px;
   max-width: 850px;
   width: 100%;
   border: 1px solid var(--border);
-  box-shadow: 0 10px 40px rgba(0,0,0,0.6);
 }
-
-h1, h2, h3 { color: var(--text-header); margin-top: 1.5rem; }
-
-/* # QUIZ STYLING */
-.q-box { margin-bottom: 20px; padding: 20px; background: rgba(255, 255, 255, 0.03); border-radius: 8px; border-left: 5px solid var(--accent); }
-.result-area { margin-top: 30px; padding: 25px; border: 1px solid var(--border); background: #111827; border-radius: 8px; }
-button { background: var(--accent); color: #000; border: none; padding: 12px 24px; font-weight: bold; cursor: pointer; border-radius: 4px; transition: 0.3s; }
-button:hover { filter: brightness(1.2); }
-
-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
-th, td { border: 1px solid var(--border); padding: 12px; }
-th { background: var(--accent); color: #000; }
