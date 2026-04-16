@@ -1,43 +1,64 @@
-/* # LOGIC: Function to evaluate quiz answers and update the DOM */
+/* # LOGIC: Main function to calculate the score and provide feedback */
 function gradeQuiz() {
+    // 1. Initialize the score counter
     let score = 0;
-    const details = document.getElementById('details');
-    details.innerHTML = ""; // Clear old data
 
-    // # Q1: Checking text input (Fill-in-the-blank)
-    const a1 = document.getElementById('ans1').value.toLowerCase().trim();
-    if(a1 === "tables") { 
-        score++; 
-        details.innerHTML += "<p style='color:#10b981'>1. Correct!</p>"; 
-    } else { 
-        details.innerHTML += "<p style='color:#ef4444'>1. Wrong (Answer: Tables)</p>"; 
-    }
+    // 2. Identify the feedback elements in the HTML
+    const resultsArea = document.getElementById('resultsArea');
+    const scoreDisplay = document.getElementById('scoreDisplay');
+    const feedbackMessage = document.getElementById('feedbackMessage');
 
-    // # Q2-4: Checking Radio selections
-    const a2 = document.querySelector('input[name="q2"]:checked')?.value;
-    if(a2 === "dialup") score++;
-
-    const a3 = document.querySelector('input[name="q3"]:checked')?.value;
-    if(a3 === "flexbox") score++;
-
-    const a4 = document.querySelector('input[name="q4"]:checked')?.value;
-    if(a4 === "mobile") score++;
-
-    // # Q5: Multi-selection logic (Both must be checked)
-    const q5Checks = document.querySelectorAll('input[name="q5"]:checked');
-    const q5Vals = Array.from(q5Checks).map(c => c.value);
-    if(q5Vals.includes("mobile") && q5Vals.includes("desktop") && q5Vals.length === 2) {
+    // 3. Check Question 1 (Text Input)
+    // We use .toLowerCase() and .trim() so "TABLES ", "Tables", and "tables" are all correct.
+    const q1Answer = document.getElementById('ans1').value.toLowerCase().trim();
+    if (q1Answer === "tables" || q1Answer === "table") {
         score++;
     }
 
-    /* # UI UPDATE: Showing pass/fail and final score */
-    document.getElementById('quizResults').style.display = "block";
-    document.getElementById('finalScore').innerText = "Score: " + score + "/5";
-    document.getElementById('passFail').innerText = score >= 3 ? "PASS" : "FAIL";
-    document.getElementById('passFail').style.color = score >= 3 ? "#10b981" : "#ef4444";
+    // 4. Check Question 2 (Radio Buttons)
+    // We use querySelector to find the 'checked' radio button in the q2 group.
+    const q2Answer = document.querySelector('input[name="q2"]:checked');
+    if (q2Answer && q2Answer.value === "56k") {
+        score++;
+    }
+
+    // 5. Check Question 3 (Radio Buttons)
+    const q3Answer = document.querySelector('input[name="q3"]:checked');
+    if (q3Answer && q3Answer.value === "flex") {
+        score++;
+    }
+
+    // 6. Check Question 4 (Radio Buttons)
+    const q4Answer = document.querySelector('input[name="q4"]:checked');
+    if (q4Answer && q4Answer.value === "mobile") {
+        score++;
+    }
+
+    // 7. Check Question 5 (Checkboxes - Multiple Choice)
+    // We collect all checked boxes and verify if the correct two (and ONLY those two) are picked.
+    const q5Checked = document.querySelectorAll('.q5-check:checked');
+    const q5Values = Array.from(q5Checked).map(cb => cb.value);
+    
+    if (q5Values.length === 2 && q5Values.includes("smartphones") && q5Values.includes("desktops")) {
+        score++;
+    }
+
+    // 8. Display the results
+    // We make the hidden div visible and update the text based on the score.
+    resultsArea.style.display = "block";
+    scoreDisplay.innerText = "Final Score: " + score + " / 5";
+
+    // 9. Logic for Pass/Fail message
+    if (score >= 3) {
+        feedbackMessage.innerText = "Congratulations! You passed the Web Evolution check.";
+        feedbackMessage.style.color = "#10b981"; // Green color for success
+    } else {
+        feedbackMessage.innerText = "Please review the Past and Present pages and try again.";
+        feedbackMessage.style.color = "#ef4444"; // Red color for failure
+    }
 }
 
-// # UI HELPER: Resets result visibility
-function hideResults() { 
-    document.getElementById('quizResults').style.display = "none"; 
+/* # HELPER: Function to clear results when the user resets the form */
+function resetQuiz() {
+    document.getElementById('resultsArea').style.display = "none";
 }
