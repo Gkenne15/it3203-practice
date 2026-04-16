@@ -1,9 +1,9 @@
-/* # DESIGN SYSTEM: Optimized for readability and Milestone 1 feedback */
+/* # GLOBAL STYLES & ACCESSIBILITY */
 :root {
   --bg: #020617;
   --card-bg: rgba(17, 24, 39, 0.95);
   --text-header: #ffffff; 
-  --text-body: #e5e7eb; 
+  --text-body: #e5e7eb; /* High contrast light gray */
   --accent: #38bdf8;
   --border: rgba(255, 255, 255, 0.2);
   --success: #10b981;
@@ -33,65 +33,39 @@ body {
   border-bottom: 2px solid var(--accent); 
 }
 
-#main-nav ul {
-  display: flex;
-  list-style: none;
-  gap: 20px;
-}
+#main-nav ul { display: flex; list-style: none; gap: 20px; }
+#main-nav a { color: #fff; text-decoration: none; font-weight: 600; }
+#main-nav a:hover { color: var(--accent); text-decoration: underline; }
 
-#main-nav a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-#main-nav a:hover { color: var(--accent); }
-
-/* # BOX MODEL: Image size reduced to 50% to satisfy professor feedback */
+/* # BOX MODEL: Reducing image size to 50% as requested by professor */
 .featured-img {
   max-width: 50%; 
   height: auto;
   border: 1px solid var(--border);
   margin: 30px auto;
   display: block;
-  border-radius: 4px;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
 }
 
 .card {
   background: var(--card-bg);
   padding: 45px; 
-  border-radius: 8px;
+  border-radius: 12px;
   max-width: 850px;
   width: 100%;
   border: 1px solid var(--border);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.6);
 }
 
-/* # QUIZ COMPONENTS */
-.q-box {
-  margin-bottom: 20px;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.03);
-  border-left: 4px solid var(--accent);
-}
+h1, h2, h3 { color: var(--text-header); margin-top: 1.5rem; }
 
-.result-area {
-  margin-top: 30px;
-  padding: 25px;
-  border: 1px solid var(--border);
-  background: #111827;
-  border-radius: 8px;
-}
-
-button {
-  background: var(--accent);
-  color: #000;
-  border: none;
-  padding: 12px 24px;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 4px;
-}
+/* # QUIZ STYLING */
+.q-box { margin-bottom: 20px; padding: 20px; background: rgba(255, 255, 255, 0.03); border-radius: 8px; border-left: 5px solid var(--accent); }
+.result-area { margin-top: 30px; padding: 25px; border: 1px solid var(--border); background: #111827; border-radius: 8px; }
+button { background: var(--accent); color: #000; border: none; padding: 12px 24px; font-weight: bold; cursor: pointer; border-radius: 4px; transition: 0.3s; }
+button:hover { filter: brightness(1.2); }
 
 table { width: 100%; border-collapse: collapse; margin: 20px 0; }
-th, td { border: 1px solid var(--border); padding: 12px; text-align: left; }
-th { background-color: var(--accent); color: #000; }
+th, td { border: 1px solid var(--border); padding: 12px; }
+th { background: var(--accent); color: #000; }
