@@ -22,8 +22,8 @@
     </header>
 
     <main class="card">
-        <h1>Evolution Quiz</h1>
-        <p>Test your knowledge of the technical shift in web standards.</p>
+        <h1>Knowledge Check</h1>
+        <p>Answer the following to see your results and corrections.</p>
 
         <form id="quizForm">
             <p>1. Which HTML element was once used for layout grids?</p>
@@ -47,13 +47,15 @@
             <input type="checkbox" value="beepers" class="q5-check"> Beepers
 
             <br><br>
-            <button type="button" onclick="gradeQuiz()">Grade My Quiz</button>
-            <button type="reset" onclick="resetQuiz()">Clear</button>
+            <button type="button" onclick="gradeQuiz()">Grade Quiz</button>
+            <button type="reset" onclick="resetQuiz()">Clear Form</button>
         </form>
 
-        <div id="resultsArea" style="display:none; margin-top: 20px; border-top: 2px solid #ccc;">
+        <div id="resultsArea" style="display:none; margin-top: 25px; padding: 15px; border-top: 2px dashed #444;">
             <h2 id="scoreDisplay"></h2>
-            <p id="feedbackMessage"></p>
+            <p id="feedbackMessage" style="font-weight: bold;"></p>
+            
+            <div id="detailsReport"></div>
         </div>
     </main>
 
