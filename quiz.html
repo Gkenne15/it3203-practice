@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz | Web Evolution</title>
+    <title>Knowledge Check | Quiz</title>
+    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -22,41 +22,48 @@
     </header>
 
     <main class="card">
-        <h1>Knowledge Check</h1>
-        <p>Answer the following to see your results and corrections.</p>
-
+        <h2>Self-Assessment Quiz</h2>
+        
         <form id="quizForm">
-            <p>1. Which HTML element was once used for layout grids?</p>
-            <input type="text" id="ans1" placeholder="Answer here...">
+            <div class="q-box">
+                <p>1. In the 1990s, developers used HTML _______ to create grids.</p>
+                <input type="text" id="ans1" placeholder="Type here...">
+            </div>
 
-            <p>2. Dial-up speed was 56___?</p>
-            <input type="radio" name="q2" value="56k"> kbps<br>
-            <input type="radio" name="q2" value="1gb"> gbps
+            <div class="q-box">
+                <p>2. What was the bandwidth limit for most 1999 users?</p>
+                <input type="radio" name="q2" value="dialup"> Dial-up (56kbps)<br>
+                <input type="radio" name="q2" value="fiber"> Fiber Optics<br>
+                <input type="radio" name="q2" value="5g"> 5G Mobile Data
+            </div>
 
-            <p>3. What is the modern standard for layouts?</p>
-            <input type="radio" name="q3" value="tables"> Tables<br>
-            <input type="radio" name="q3" value="flex"> Flexbox/Grid
+            <div class="q-box">
+                <p>3. Which CSS tool is used for modern responsive layouts?</p>
+                <input type="radio" name="q3" value="flexbox"> Flexbox<br>
+                <input type="radio" name="q3" value="frames"> Framesets<br>
+                <input type="radio" name="q3" value="blink"> Blink tags
+            </div>
 
-            <p>4. Modern design is ______-first?</p>
-            <input type="radio" name="q4" value="mobile"> Mobile<br>
-            <input type="radio" name="q4" value="desktop"> Desktop
+            <div class="q-box">
+                <p>4. Modern design prioritizes what over text density?</p>
+                <input type="radio" name="q4" value="whitespace"> Whitespace<br>
+                <input type="radio" name="q4" value="popups"> Pop-up Ads<br>
+                <input type="radio" name="q4" value="tables"> Table layouts
+            </div>
 
-            <p>5. Pick the TWO modern devices (Select two):</p>
-            <input type="checkbox" value="smartphones" class="q5-check"> Smartphones<br>
-            <input type="checkbox" value="desktops" class="q5-check"> Desktops<br>
-            <input type="checkbox" value="beepers" class="q5-check"> Beepers
+            <div class="q-box">
+                <p>5. Modern Responsive design works on (Select two):</p>
+                <input type="checkbox" name="q5" value="mobile"> Smartphones<br>
+                <input type="checkbox" name="q5" value="desktop"> Desktop Monitors<br>
+                <input type="checkbox" name="q5" value="pager"> 90s Pagers
+            </div>
 
-            <br><br>
-            <button type="button" onclick="gradeQuiz()">Grade Quiz</button>
-            <button type="reset" onclick="resetQuiz()">Clear Form</button>
+            <button type="button" onclick="gradeQuiz()">Submit Quiz</button>
+            <button type="reset" onclick="hideResults()">Reset</button>
         </form>
 
-        <div id="resultsArea" style="display:none; margin-top: 25px; padding: 15px; border-top: 2px dashed #444;">
-            <h2 id="scoreDisplay"></h2>
-            <p id="feedbackMessage" style="font-weight: bold;"></p>
-            
-            <div id="detailsReport"></div>
-        </div>
+        <div id="quizResults" class="result-area" style="display:none;">
+            <h3 id="passFail"></h3> <p id="finalScore"></p> <div id="details"></div> </div>
     </main>
 
     <script src="quiz.js"></script>
