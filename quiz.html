@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Evolution Quiz</title>
+    <title>Quiz | Web Evolution</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -22,47 +22,47 @@
     </header>
 
     <main class="card">
-        <h1>Test Your Knowledge</h1>
-        <p>Answer the following questions based on our research into Web History.</p>
+        <h1>Knowledge Check</h1>
+        <p>Complete the quiz below to verify your research progress.</p>
 
         <form id="quizForm">
-            
-            <div class="question">
-                <p>1. In the 90s, what HTML element was incorrectly used to create page layouts?</p>
-                <input type="text" id="ans1" placeholder="Enter answer here...">
+            <div class="question-block">
+                <p><strong>1.</strong> Which HTML element was used for layouts in the 90s?</p>
+                <input type="text" id="ans1" placeholder="Enter answer...">
             </div>
 
-            <div class="question">
-                <p>2. What was the standard dial-up modem speed in the late 90s?</p>
-                <input type="radio" name="q2" value="56k" id="q2a"> <label for="q2a">56kbps</label><br>
-                <input type="radio" name="q2" value="1gb" id="q2b"> <label for="q2b">1Gbps</label>
+            <div class="question-block">
+                <p><strong>2.</strong> Standard dial-up speed was 56___?</p>
+                <input type="radio" name="q2" value="56k" id="q2-opt1"> <label for="q2-opt1">kbps</label><br>
+                <input type="radio" name="q2" value="1gb" id="q2-opt2"> <label for="q2-opt2">gbps</label>
             </div>
 
-            <div class="question">
-                <p>3. Which CSS technology is used for modern responsive grids?</p>
-                <input type="radio" name="q3" value="tables" id="q3a"> <label for="q3a">Tables</label><br>
-                <input type="radio" name="q3" value="flex" id="q3b"> <label for="q3b">Flexbox/Grid</label>
+            <div class="question-block">
+                <p><strong>3.</strong> Modern layouts primarily use which CSS tool?</p>
+                <input type="radio" name="q3" value="tables" id="q3-opt1"> <label for="q3-opt1">Tables</label><br>
+                <input type="radio" name="q3" value="flex" id="q3-opt2"> <label for="q3-opt2">Flexbox/Grid</label>
             </div>
 
-            <div class="question">
-                <p>4. Modern web design prioritizes which approach?</p>
-                <input type="radio" name="q4" value="mobile" id="q4a"> <label for="q4a">Mobile-First</label><br>
-                <input type="radio" name="q4" value="fixed" id="q4b"> <label for="q4b">Fixed-Width</label>
+            <div class="question-block">
+                <p><strong>4.</strong> Modern design is _______-First?</p>
+                <input type="radio" name="q4" value="mobile" id="q4-opt1"> <label for="q4-opt1">Mobile</label><br>
+                <input type="radio" name="q4" value="desktop" id="q4-opt2"> <label for="q4-opt2">Desktop</label>
             </div>
 
-            <div class="question">
-                <p>5. Which two devices must modern websites support? (Select two):</p>
-                <input type="checkbox" name="q5" value="smartphones" class="q5-check"> Smartphones<br>
-                <input type="checkbox" name="q5" value="desktops" class="q5-check"> Desktops<br>
-                <input type="checkbox" name="q5" value="fax" class="q5-check"> Fax Machines
+            <div class="question-block">
+                <p><strong>5.</strong> Select the two primary modern devices:</p>
+                <input type="checkbox" value="smartphones" class="q5-check"> Smartphones<br>
+                <input type="checkbox" value="desktops" class="q5-check"> Desktops<br>
+                <input type="checkbox" value="pagers" class="q5-check"> Pagers
             </div>
 
             <br>
-            <button type="button" onclick="gradeQuiz()">Submit Answers</button>
-            <button type="reset" onclick="resetQuiz()">Clear Form</button>
+            <button type="button" onclick="gradeQuiz()">Grade Quiz</button>
+            <button type="reset" onclick="resetQuiz()">Reset Form</button>
         </form>
 
-        <div id="resultsArea" style="display:none; margin-top:30px; padding:20px; border:2px solid var(--accent); border-radius:8px;">
+        <div id="resultsArea" style="display:none;">
+            <hr>
             <h2 id="scoreDisplay"></h2>
             <p id="feedbackMessage"></p>
         </div>
