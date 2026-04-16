@@ -22,47 +22,36 @@
     </header>
 
     <main class="card">
-        <h1>Knowledge Check</h1>
-        <p>Complete the quiz below to verify your research progress.</p>
+        <h1>Evolution Quiz</h1>
+        <p>Test your knowledge of the technical shift in web standards.</p>
 
         <form id="quizForm">
-            <div class="question-block">
-                <p><strong>1.</strong> Which HTML element was used for layouts in the 90s?</p>
-                <input type="text" id="ans1" placeholder="Enter answer...">
-            </div>
+            <p>1. Which HTML element was once used for layout grids?</p>
+            <input type="text" id="ans1" placeholder="Answer here...">
 
-            <div class="question-block">
-                <p><strong>2.</strong> Standard dial-up speed was 56___?</p>
-                <input type="radio" name="q2" value="56k" id="q2-opt1"> <label for="q2-opt1">kbps</label><br>
-                <input type="radio" name="q2" value="1gb" id="q2-opt2"> <label for="q2-opt2">gbps</label>
-            </div>
+            <p>2. Dial-up speed was 56___?</p>
+            <input type="radio" name="q2" value="56k"> kbps<br>
+            <input type="radio" name="q2" value="1gb"> gbps
 
-            <div class="question-block">
-                <p><strong>3.</strong> Modern layouts primarily use which CSS tool?</p>
-                <input type="radio" name="q3" value="tables" id="q3-opt1"> <label for="q3-opt1">Tables</label><br>
-                <input type="radio" name="q3" value="flex" id="q3-opt2"> <label for="q3-opt2">Flexbox/Grid</label>
-            </div>
+            <p>3. What is the modern standard for layouts?</p>
+            <input type="radio" name="q3" value="tables"> Tables<br>
+            <input type="radio" name="q3" value="flex"> Flexbox/Grid
 
-            <div class="question-block">
-                <p><strong>4.</strong> Modern design is _______-First?</p>
-                <input type="radio" name="q4" value="mobile" id="q4-opt1"> <label for="q4-opt1">Mobile</label><br>
-                <input type="radio" name="q4" value="desktop" id="q4-opt2"> <label for="q4-opt2">Desktop</label>
-            </div>
+            <p>4. Modern design is ______-first?</p>
+            <input type="radio" name="q4" value="mobile"> Mobile<br>
+            <input type="radio" name="q4" value="desktop"> Desktop
 
-            <div class="question-block">
-                <p><strong>5.</strong> Select the two primary modern devices:</p>
-                <input type="checkbox" value="smartphones" class="q5-check"> Smartphones<br>
-                <input type="checkbox" value="desktops" class="q5-check"> Desktops<br>
-                <input type="checkbox" value="pagers" class="q5-check"> Pagers
-            </div>
+            <p>5. Pick the TWO modern devices (Select two):</p>
+            <input type="checkbox" value="smartphones" class="q5-check"> Smartphones<br>
+            <input type="checkbox" value="desktops" class="q5-check"> Desktops<br>
+            <input type="checkbox" value="beepers" class="q5-check"> Beepers
 
-            <br>
-            <button type="button" onclick="gradeQuiz()">Grade Quiz</button>
-            <button type="reset" onclick="resetQuiz()">Reset Form</button>
+            <br><br>
+            <button type="button" onclick="gradeQuiz()">Grade My Quiz</button>
+            <button type="reset" onclick="resetQuiz()">Clear</button>
         </form>
 
-        <div id="resultsArea" style="display:none;">
-            <hr>
+        <div id="resultsArea" style="display:none; margin-top: 20px; border-top: 2px solid #ccc;">
             <h2 id="scoreDisplay"></h2>
             <p id="feedbackMessage"></p>
         </div>
