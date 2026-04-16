@@ -1,72 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Knowledge Check | Quiz</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header id="main-nav">
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="topic1.html">The Past</a></li>
-                <li><a href="topic2.html">The Present</a></li>
-                <li><a href="quiz.html">Quiz</a></li>
-                <li><a href="concepts.html">Concepts</a></li>
-                <li><a href="resources.html">Resources</a></li>
-                <li><a href="about.html">About</a></li>
-            </ul>
-        </nav>
-    </header>
+function gradeQuiz() {
+    let score = 0;
+    const details = document.getElementById('details');
+    details.innerHTML = ""; 
 
-    <main class="card">
-        <h2>Self-Assessment Quiz</h2>
-        <form id="quizForm">
-            <div class="q-box">
-                <p>1. In the 1990s, developers used HTML _______ to create grids.</p>
-                <input type="text" id="ans1" placeholder="Type here...">
-            </div>
+    // Q1
+    const a1 = document.getElementById('ans1').value.toLowerCase().trim();
+    if(a1 === "tables") { score++; details.innerHTML += "<p style='color:#10b981'>1. Correct! (Tables)</p>"; }
+    else { details.innerHTML += "<p style='color:#ef4444'>1. Incorrect. Correct answer: Tables</p>"; }
 
-            <div class="q-box">
-                <p>2. What was the bandwidth limit for most 1999 users?</p>
-                <input type="radio" name="q2" value="dialup"> Dial-up (56kbps)<br>
-                <input type="radio" name="q2" value="fiber"> Fiber Optics<br>
-                <input type="radio" name="q2" value="5g"> 5G Mobile Data
-            </div>
+    // Q2-Q4
+    const a2 = document.querySelector('input[name="q2"]:checked')?.value;
+    if(a2 === "dialup") { score++; details.innerHTML += "<p style='color:#10b981'>2. Correct!</p>"; }
+    else { details.innerHTML += "<p style='color:#ef4444'>2. Incorrect. Correct: Dial-up</p>"; }
 
-            <div class="q-box">
-                <p>3. Which CSS tool is used for modern responsive layouts?</p>
-                <input type="radio" name="q3" value="flexbox"> Flexbox<br>
-                <input type="radio" name="q3" value="frames"> Framesets<br>
-                <input type="radio" name="q3" value="blink"> Blink tags
-            </div>
+    const a3 = document.querySelector('input[name="q3"]:checked')?.value;
+    if(a3 === "flexbox") { score++; details.innerHTML += "<p style='color:#10b981'>3. Correct!</p>"; }
+    else { details.innerHTML += "<p style='color:#ef4444'>3. Incorrect. Correct: Flexbox</p>"; }
 
-            <div class="q-box">
-                <p>4. Modern design prioritizes what over text density?</p>
-                <input type="radio" name="q4" value="whitespace"> Whitespace<br>
-                <input type="radio" name="q4" value="popups"> Pop-up Ads<br>
-                <input type="radio" name="q4" value="tables"> Table layouts
-            </div>
+    const a4 = document.querySelector('input[name="q4"]:checked')?.value;
+    if(a4 === "whitespace") { score++; details.innerHTML += "<p style='color:#10b981'>4. Correct!</p>"; }
+    else { details.innerHTML += "<p style='color:#ef4444'>4. Incorrect. Correct: Whitespace</p>"; }
 
-            <div class="q-box">
-                <p>5. Modern Responsive design works on (Select two):</p>
-                <input type="checkbox" name="q5" value="mobile"> Smartphones<br>
-                <input type="checkbox" name="q5" value="desktop"> Desktop Monitors<br>
-                <input type="checkbox" name="q5" value="pager"> 90s Pagers
-            </div>
+    // Q5
+    const q5Checks = document.querySelectorAll('input[name="q5"]:checked');
+    const q5Vals = Array.from(q5Checks).map(c => c.value);
+    if(q5Vals.includes("mobile") && q5Vals.includes("desktop") && q5Vals.length === 2) {
+        score++; details.innerHTML += "<p style='color:#10b981'>5. Correct!</p>";
+    } else { details.innerHTML += "<p style='color:#ef4444'>5. Incorrect. Correct: Mobile and Desktop</p>"; }
 
-            <button type="button" onclick="gradeQuiz()">Submit Quiz</button>
-            <button type="reset" onclick="hideResults()">Reset</button>
-        </form>
+    document.getElementById('quizResults').style.display = "block";
+    document.getElementById('finalScore').innerText = "Score: " + score + "/5";
+    document.getElementById('passFail').innerText = score >= 3 ? "PASS" : "FAIL";
+    document.getElementById('passFail').style.color = score >= 3 ? "#10b981" : "#ef4444";
+}
 
-        <div id="quizResults" class="result-area" style="display:none;">
-            <h3 id="passFail"></h3>
-            <p id="finalScore"></p>
-            <div id="details"></div>
-        </div>
-    </main>
-
-    <script src="quiz.js"></script>
-</body>
-</html>
+function hideResults() { document.getElementById('quizResults').style.display = "none"; }
