@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Quiz | Web Evolution</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Evolution Quiz</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -21,38 +22,52 @@
     </header>
 
     <main class="card">
-        <h2>Knowledge Check</h2>
+        <h1>Test Your Knowledge</h1>
+        <p>Answer the following questions based on our research into Web History.</p>
+
         <form id="quizForm">
-            <p>1. In the 90s, developers used HTML _______ for layout.</p>
-            <input type="text" id="ans1" placeholder="Type here...">
+            
+            <div class="question">
+                <p>1. In the 90s, what HTML element was incorrectly used to create page layouts?</p>
+                <input type="text" id="ans1" placeholder="Enter answer here...">
+            </div>
 
-            <p>2. What was the common dial-up speed?</p>
-            <input type="radio" name="q2" value="dialup"> 56kbps<br>
-            <input type="radio" name="q2" value="fiber"> 1Gbps
+            <div class="question">
+                <p>2. What was the standard dial-up modem speed in the late 90s?</p>
+                <input type="radio" name="q2" value="56k" id="q2a"> <label for="q2a">56kbps</label><br>
+                <input type="radio" name="q2" value="1gb" id="q2b"> <label for="q2b">1Gbps</label>
+            </div>
 
-            <p>3. Which CSS tool is modern?</p>
-            <input type="radio" name="q3" value="flexbox"> Flexbox<br>
-            <input type="radio" name="q3" value="frames"> Frames
+            <div class="question">
+                <p>3. Which CSS technology is used for modern responsive grids?</p>
+                <input type="radio" name="q3" value="tables" id="q3a"> <label for="q3a">Tables</label><br>
+                <input type="radio" name="q3" value="flex" id="q3b"> <label for="q3b">Flexbox/Grid</label>
+            </div>
 
-            <p>4. Modern sites are:</p>
-            <input type="radio" name="q4" value="mobile"> Mobile-First<br>
-            <input type="radio" name="q4" value="fixed"> Fixed Width
+            <div class="question">
+                <p>4. Modern web design prioritizes which approach?</p>
+                <input type="radio" name="q4" value="mobile" id="q4a"> <label for="q4a">Mobile-First</label><br>
+                <input type="radio" name="q4" value="fixed" id="q4b"> <label for="q4b">Fixed-Width</label>
+            </div>
 
-            <p>5. Which do modern sites support? (Select two):</p>
-            <input type="checkbox" name="q5" value="mobile"> Mobile<br>
-            <input type="checkbox" name="q5" value="desktop"> Desktop
+            <div class="question">
+                <p>5. Which two devices must modern websites support? (Select two):</p>
+                <input type="checkbox" name="q5" value="smartphones" class="q5-check"> Smartphones<br>
+                <input type="checkbox" name="q5" value="desktops" class="q5-check"> Desktops<br>
+                <input type="checkbox" name="q5" value="fax" class="q5-check"> Fax Machines
+            </div>
 
-            <br><br>
-            <button type="button" onclick="gradeQuiz()">Submit</button>
-            <button type="reset" onclick="hideResults()">Reset</button>
+            <br>
+            <button type="button" onclick="gradeQuiz()">Submit Answers</button>
+            <button type="reset" onclick="resetQuiz()">Clear Form</button>
         </form>
 
-        <div id="quizResults" style="display:none; margin-top:20px; border-top:1px solid #ccc;">
-            <h3 id="passFail"></h3>
-            <p id="finalScore"></p>
-            <div id="details"></div>
+        <div id="resultsArea" style="display:none; margin-top:30px; padding:20px; border:2px solid var(--accent); border-radius:8px;">
+            <h2 id="scoreDisplay"></h2>
+            <p id="feedbackMessage"></p>
         </div>
     </main>
+
     <script src="quiz.js"></script>
 </body>
 </html>
