@@ -1,43 +1,74 @@
-function gradeQuiz() {
-    let score = 0;
-    const details = document.getElementById('details');
-    details.innerHTML = ""; 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Knowledge Check | Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header id="main-nav">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="topic1.html">The Past</a></li>
+                <li><a href="topic2.html">The Present</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+                <li><a href="concepts.html">Concepts</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    // Q1: Fill-in-the-blank (Correct: tables)
-    const a1 = document.getElementById('ans1').value.toLowerCase().trim();
-    if(a1 === "tables") { 
-        score++; 
-        details.innerHTML += "<p class='correct'>Q1: Correct! (Tables were used for layouts).</p>"; 
-    } else { 
-        details.innerHTML += "<p class='incorrect'>Q1: Incorrect. Answer: Tables</p>"; 
-    }
+    <main class="card">
+        <h2>Web Evolution Quiz</h2>
+        <p>Test your knowledge of the transition from 90s web design to the modern era.</p>
+        
+        <form id="quiz-form">
+            <div class="q-box">
+                <p>1. In the 1990s, developers used invisible HTML _______ to create page layouts.</p>
+                <input type="text" id="ans1" placeholder="Type answer here...">
+            </div>
 
-    // Q2-Q4: Multiple Choice
-    const a2 = document.querySelector('input[name="q2"]:checked')?.value;
-    if(a2 === "dialup") { score++; details.innerHTML += "<p class='correct'>Q2: Correct!</p>"; }
-    else { details.innerHTML += "<p class='incorrect'>Q2: Incorrect. Answer: Dial-up</p>"; }
+            <div class="q-box">
+                <p>2. What technology caused the most design constraints in 1999?</p>
+                <input type="radio" name="q2" value="dialup"> Dial-up Bandwidth<br>
+                <input type="radio" name="q2" value="fiber"> High-speed Fiber<br>
+                <input type="radio" name="q2" value="gpu"> Graphic Card speed
+            </div>
 
-    const a3 = document.querySelector('input[name="q3"]:checked')?.value;
-    if(a3 === "flexbox") { score++; details.innerHTML += "<p class='correct'>Q3: Correct!</p>"; }
-    else { details.innerHTML += "<p class='incorrect'>Q3: Incorrect. Answer: Flexbox</p>"; }
+            <div class="q-box">
+                <p>3. Modern CSS layout is best achieved using:</p>
+                <input type="radio" name="q3" value="flexbox"> Flexbox and Grid<br>
+                <input type="radio" name="q3" value="tables"> Nested Tables<br>
+                <input type="radio" name="q3" value="frames"> iFrames
+            </div>
 
-    const a4 = document.querySelector('input[name="q4"]:checked')?.value;
-    if(a4 === "minimalism") { score++; details.innerHTML += "<p class='correct'>Q4: Correct!</p>"; }
-    else { details.innerHTML += "<p class='incorrect'>Q4: Incorrect. Answer: Minimalism</p>"; }
+            <div class="q-box">
+                <p>4. What is a key principle of modern Web UI design?</p>
+                <input type="radio" name="q4" value="minimalism"> Minimalist Whitespace<br>
+                <input type="radio" name="q4" value="clutter"> Maximum Text Density<br>
+                <input type="radio" name="q4" value="popups"> Aggressive Pop-ups
+            </div>
 
-    // Q5: Multi-selection (Correct: mobile AND desktop)
-    const q5Checks = document.querySelectorAll('input[name="q5"]:checked');
-    const q5Vals = Array.from(q5Checks).map(c => c.value);
-    if(q5Vals.includes("mobile") && q5Vals.includes("desktop") && q5Vals.length === 2) {
-        score++; details.innerHTML += "<p class='correct'>Q5: Correct!</p>";
-    } else { details.innerHTML += "<p class='incorrect'>Q5: Incorrect. Correct: Mobile and Desktop</p>"; }
+            <div class="q-box">
+                <p>5. Select ALL characteristics of modern UI (Select two):</p>
+                <input type="checkbox" name="q5" value="mobile"> Mobile-First Fluidity<br>
+                <input type="checkbox" name="q5" value="desktop"> Desktop Responsiveness<br>
+                <input type="checkbox" name="q5" value="blink"> Blinking Text Tags
+            </div>
 
-    // Final Display logic
-    document.getElementById('quizResults').style.display = "block";
-    document.getElementById('finalScore').innerText = `Total Score: ${score}/5`;
-    const pf = document.getElementById('passFail');
-    pf.innerText = score >= 3 ? "RESULT: PASS" : "RESULT: FAIL";
-    pf.style.color = score >= 3 ? "#10b981" : "#ef4444";
-}
+            <button type="button" onclick="gradeQuiz()">Submit Quiz</button>
+            <button type="reset" onclick="hideResults()">Reset Quiz</button>
+        </form>
 
-function hideResults() { document.getElementById('quizResults').style.display = "none"; }
+        <div id="quizResults" class="result-area" style="display:none;">
+            <h3 id="passFail"></h3>
+            <p id="finalScore"></p>
+            <div id="details"></div>
+        </div>
+    </main>
+
+    <script src="quiz.js"></script>
+</body>
+</html>
