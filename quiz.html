@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Knowledge Check | Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header id="main-nav">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="topic1.html">The Past</a></li>
+                <li><a href="topic2.html">The Present</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+                <li><a href="concepts.html">Concepts</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="card">
+        <h2>Web Evolution Quiz</h2>
+        <p>Test your knowledge of the transition from 90s web design to the modern era.</p>
+        
+        <form id="quiz-form">
+            <div class="question-block">
+                <p>1. In the 1990s, developers used invisible HTML _______ to create page layouts.</p>
+                <input type="text" id="q1" placeholder="Type answer here...">
+            </div>
+
+            <div class="question-block">
+                <p>2. Which CSS layout tool allows elements to rearrange based on screen size?</p>
+                <input type="radio" name="q2" value="tables"> Tables<br>
+                <input type="radio" name="q2" value="flexbox"> Flexbox<br>
+                <input type="radio" name="q2" value="frames"> Frames
+            </div>
+
+            <div class="question-block">
+                <p>3. What was the main bandwidth bottleneck in 1999?</p>
+                <input type="radio" name="q3" value="fiber"> Fiber Optics<br>
+                <input type="radio" name="q3" value="dialup"> Dial-up Connection<br>
+                <input type="radio" name="q3" value="5g"> 5G Mobile Data
+            </div>
+
+            <div class="question-block">
+                <p>4. Modern design prioritizes which development strategy?</p>
+                <input type="radio" name="q4" value="desktop"> Desktop-Only<br>
+                <input type="radio" name="q4" value="mobile"> Mobile-First<br>
+                <input type="radio" name="q4" value="flash"> Adobe Flash Support
+            </div>
+
+            <div class="question-block">
+                <p>5. Select ALL characteristics of modern UI design (Select two):</p>
+                <input type="checkbox" name="q5" value="whitespace"> Ample Whitespace<br>
+                <input type="checkbox" name="q5" value="clutter"> Maximum Text Density<br>
+                <input type="checkbox" name="q5" value="responsive"> Responsive Fluidity
+            </div>
+
+            <button type="button" onclick="calculateScore()">Submit Quiz</button>
+            <button type="reset" onclick="resetQuiz()">Reset Quiz</button>
+        </form>
+
+        <div id="results" class="result-box" style="display:none;">
+            <h3 id="grade"></h3>
+            <p id="score-text"></p>
+            <div id="feedback-details"></div>
+        </div>
+    </main>
+
+    <script src="quiz.js"></script>
+    <footer><p>Class project for <a href="https://ksuweb.github.io/IT3203/">IT 3203</a></p></footer>
+</body>
+</html>
