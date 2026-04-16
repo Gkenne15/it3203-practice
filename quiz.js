@@ -21,45 +21,43 @@
     </header>
 
     <main class="card">
-        <h2>Web Evolution Quiz</h2>
-        <p>Test your knowledge of the transition from 90s web design to the modern era.</p>
-        
-        <form id="quiz-form">
+        <h2>Self-Assessment Quiz</h2>
+        <form id="quizForm">
             <div class="q-box">
-                <p>1. In the 1990s, developers used invisible HTML _______ to create page layouts.</p>
-                <input type="text" id="ans1" placeholder="Type answer here...">
+                <p>1. In the 1990s, developers used HTML _______ to create grids.</p>
+                <input type="text" id="ans1" placeholder="Type here...">
             </div>
 
             <div class="q-box">
-                <p>2. What technology caused the most design constraints in 1999?</p>
-                <input type="radio" name="q2" value="dialup"> Dial-up Bandwidth<br>
-                <input type="radio" name="q2" value="fiber"> High-speed Fiber<br>
-                <input type="radio" name="q2" value="gpu"> Graphic Card speed
+                <p>2. What was the bandwidth limit for most 1999 users?</p>
+                <input type="radio" name="q2" value="dialup"> Dial-up (56kbps)<br>
+                <input type="radio" name="q2" value="fiber"> Fiber Optics<br>
+                <input type="radio" name="q2" value="5g"> 5G Mobile Data
             </div>
 
             <div class="q-box">
-                <p>3. Modern CSS layout is best achieved using:</p>
-                <input type="radio" name="q3" value="flexbox"> Flexbox and Grid<br>
-                <input type="radio" name="q3" value="tables"> Nested Tables<br>
-                <input type="radio" name="q3" value="frames"> iFrames
+                <p>3. Which CSS tool is used for modern responsive layouts?</p>
+                <input type="radio" name="q3" value="flexbox"> Flexbox<br>
+                <input type="radio" name="q3" value="frames"> Framesets<br>
+                <input type="radio" name="q3" value="blink"> Blink tags
             </div>
 
             <div class="q-box">
-                <p>4. What is a key principle of modern Web UI design?</p>
-                <input type="radio" name="q4" value="minimalism"> Minimalist Whitespace<br>
-                <input type="radio" name="q4" value="clutter"> Maximum Text Density<br>
-                <input type="radio" name="q4" value="popups"> Aggressive Pop-ups
+                <p>4. Modern design prioritizes what over text density?</p>
+                <input type="radio" name="q4" value="whitespace"> Whitespace<br>
+                <input type="radio" name="q4" value="popups"> Pop-up Ads<br>
+                <input type="radio" name="q4" value="tables"> Table layouts
             </div>
 
             <div class="q-box">
-                <p>5. Select ALL characteristics of modern UI (Select two):</p>
-                <input type="checkbox" name="q5" value="mobile"> Mobile-First Fluidity<br>
-                <input type="checkbox" name="q5" value="desktop"> Desktop Responsiveness<br>
-                <input type="checkbox" name="q5" value="blink"> Blinking Text Tags
+                <p>5. Modern Responsive design works on (Select two):</p>
+                <input type="checkbox" name="q5" value="mobile"> Smartphones<br>
+                <input type="checkbox" name="q5" value="desktop"> Desktop Monitors<br>
+                <input type="checkbox" name="q5" value="pager"> 90s Pagers
             </div>
 
             <button type="button" onclick="gradeQuiz()">Submit Quiz</button>
-            <button type="reset" onclick="hideResults()">Reset Quiz</button>
+            <button type="reset" onclick="hideResults()">Reset</button>
         </form>
 
         <div id="quizResults" class="result-area" style="display:none;">
