@@ -1,61 +1,60 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz | Web Evolution</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="topic1.html">The Past</a></li>
-            <li><a href="topic2.html">The Present</a></li>
-            <li><a href="quiz.html" class="active-link">Quiz</a></li>
-            <li><a href="concepts.html">Concepts</a></li>
-            <li><a href="resources.html">Resources</a></li>
-            <li><a href="about.html">About</a></li>
-        </ul>
-    </nav>
-    <main class="card">
-        <h2>Self-Assessment Quiz</h2>
-        <form id="quizForm">
-            <div class="q-box">
-                <p>1. In the 1990s, developers used HTML _______ to create grids.</p>
-                <input type="text" id="ans1" placeholder="Type here...">
-            </div>
-            <div class="q-box">
-                <p>2. Bandwidth limit for most 1999 users?</p>
-                <input type="radio" name="q2" value="dialup"> Dial-up (56kbps)<br>
-                <input type="radio" name="q2" value="fiber"> Fiber Optics
-            </div>
-            <div class="q-box">
-                <p>3. CSS tool for modern responsive layouts?</p>
-                <input type="radio" name="q3" value="flexbox"> Flexbox<br>
-                <input type="radio" name="q3" value="frames"> Framesets
-            </div>
-            <div class="q-box">
-                <p>4. Modern design prioritizes what?</p>
-                <input type="radio" name="q4" value="whitespace"> Whitespace<br>
-                <input type="radio" name="q4" value="popups"> Pop-ups
-            </div>
-            <div class="q-box">
-                <p>5. Modern Responsive design works on (Select two):</p>
-                <input type="checkbox" name="q5" value="mobile"> Smartphones<br>
-                <input type="checkbox" name="q5" value="desktop"> Desktop Monitors
-            </div>
-            <br>
-            <button type="button" onclick="gradeQuiz()">Submit Quiz</button>
-            <button type="reset" onclick="hideResults()">Reset</button>
-        </form>
-        <div id="quizResults" style="display:none; margin-top:20px;">
-            <h3 id="passFail"></h3>
-            <p id="finalScore"></p>
-            <div id="details"></div>
-        </div>
-    </main>
-    <footer><p>Class project for <a href="https://ksuweb.github.io/IT3203/" target="_blank">IT 3203</a></p></footer>
-    <script src="quiz.js"></script>
-</body>
-</html>
+/* # DOCUMENTATION: Milestone 3 Quiz Logic
+   Handles responsive feedback and dynamic DOM manipulation.
+*/
+
+function gradeQuiz() {
+    let score = 0;
+    const details = document.getElementById('details');
+    details.innerHTML = ""; 
+
+    // Q1 - Text
+    const a1 = document.getElementById('ans1').value.toLowerCase().trim();
+    if(a1 === "tables") { 
+        score++; 
+        details.innerHTML += "<p style='color:#10b981'>1. Correct! (Tables)</p>"; 
+    } else { 
+        details.innerHTML += "<p style='color:#ef4444'>1. Incorrect. Correct: Tables</p>"; 
+    }
+
+    // Q2 - Radio
+    const a2 = document.querySelector('input[name="q2"]:checked')?.value;
+    if(a2 === "dialup") { 
+        score++; details.innerHTML += "<p style='color:#10b981'>2. Correct!</p>"; 
+    } else { 
+        details.innerHTML += "<p style='color:#ef4444'>2. Incorrect. Correct: Dial-up</p>"; 
+    }
+
+    // Q3 - Radio
+    const a3 = document.querySelector('input[name="q3"]:checked')?.value;
+    if(a3 === "flexbox") { 
+        score++; details.innerHTML += "<p style='color:#10b981'>3. Correct!</p>"; 
+    } else { 
+        details.innerHTML += "<p style='color:#ef4444'>3. Incorrect. Correct: Flexbox</p>"; 
+    }
+
+    // Q4 - Radio
+    const a4 = document.querySelector('input[name="q4"]:checked')?.value;
+    if(a4 === "whitespace") { 
+        score++; details.innerHTML += "<p style='color:#10b981'>4. Correct!</p>"; 
+    } else { 
+        details.innerHTML += "<p style='color:#ef4444'>4. Incorrect. Correct: Whitespace</p>"; 
+    }
+
+    // Q5 - Checkboxes
+    const q5Checks = document.querySelectorAll('input[name="q5"]:checked');
+    const q5Vals = Array.from(q5Checks).map(c => c.value);
+    if(q5Vals.includes("mobile") && q5Vals.includes("desktop") && q5Vals.length === 2) {
+        score++; details.innerHTML += "<p style='color:#10b981'>5. Correct!</p>";
+    } else { 
+        details.innerHTML += "<p style='color:#ef4444'>5. Incorrect. Correct: Mobile and Desktop</p>"; 
+    }
+
+    document.getElementById('quizResults').style.display = "block";
+    document.getElementById('finalScore').innerText = "Final Score: " + score + "/5";
+    document.getElementById('passFail').innerText = score >= 3 ? "PASS" : "FAIL";
+    document.getElementById('passFail').style.color = score >= 3 ? "#10b981" : "#ef4444";
+}
+
+function hideResults() { 
+    document.getElementById('quizResults').style.display = "none"; 
+}
