@@ -2,36 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>The Past | Web Evolution</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Evolution | The Past</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header id="main-nav">
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="topic1.html">The Past</a></li>
-                <li><a href="topic2.html">The Present</a></li>
-                <li><a href="quiz.html">Quiz</a></li>
-                <li><a href="concepts.html">Concepts</a></li>
-                <li><a href="resources.html">Resources</a></li>
-                <li><a href="about.html">About</a></li>
-            </ul>
-        </nav>
-    </header>
-
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="topic1.html" class="active-link">The Past</a></li>
+            <li><a href="topic2.html">The Present</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+            <li><a href="concepts.html">Concepts</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </nav>
     <main class="card">
-        <h1>The Era of Table-Based Layouts (1990s)</h1>
+        <h1>Web 1.0: Table Layouts and Dial-Up</h1>
+        <p>In the late 1990s, web design was limited by slow 56kbps dial-up speeds and primitive browser support. Developers relied on HTML tables to create layouts, a practice that was technically incorrect but necessary for structural control.</p>
+        <p>This era was defined by "fixed-width" designs, meaning if a user had a smaller monitor than the developer, they would have to scroll horizontally. Graphics were heavy, and "Web-Safe" colors were the only reliable choice.</p>
         
-        <p>In the late 1990s, web design was largely a technical hurdle. Before CSS became the standard, developers repurposed the HTML table tag. While tables were intended for data, they became the only reliable way to create columns. This resulted in "nested tables," where code was cluttered with layers of invisible borders.</p>
+        <p>The "Browser Wars" between Netscape and Internet Explorer further complicated this era. Each browser introduced proprietary tags that didn't work in the other, forcing developers to write redundant code or display "Best viewed in Internet Explorer" banners.</p>
         
-        <img src="amazon-99.gif" alt="Old Amazon Layout" class="featured-img">
-        
-        <p>Bandwidth was the biggest constraint of 1999. Most users had dial-up modems at 56kbps. A single large image could take minutes to load. Designers used small tiled backgrounds and "spacer GIFs" to maintain layout gaps. This created a text-heavy aesthetic that defined the early commercial internet.</p>
-
-        <p>Colors were limited to the "Web-Safe Palette" of 216 colors. Sticking to these ensured sites looked the same on different monitors. If a designer strayed, the browser would "dither" the image, making it look speckled. This is why many legacy sites share the same primary-color-heavy appearance.</p>
-
-        <p>User Experience (UX) was also in its infancy. Websites had a fixed width of 800 pixels because mobile browsing didn't exist. There was little regard for accessibility; the goal was simply to deliver info. Navigation was usually a long list of blue underlined links and flickering GIF animations.</p>
+        <p>Maintenance during this period was a nightmare; because styles were often inline or embedded in every page, a simple font change required manual edits to every single HTML file. This inefficiency eventually led to the widespread adoption of CSS.</p>
     </main>
+    <footer><p>Class project for <a href="https://ksuweb.github.io/IT3203/" target="_blank">IT 3203</a></p></footer>
 </body>
 </html>
