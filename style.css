@@ -1,61 +1,102 @@
-/* # DOCUMENTATION: Root variables for easy theme management and high-contrast accessibility */
-/* We use variables so we can change the 'accent' color in one place for the whole site. */
+/* # DOCUMENTATION: Milestone 3 Responsive Design System
+   PURPOSE: Implements Mobile-First principles and "Active Page" visual feedback.
+*/
+
 :root {
-  --bg: #020617;
-  --card-bg: rgba(17, 24, 39, 0.95);
-  --text-header: #ffffff; 
-  --text-body: #e5e7eb; 
-  --accent: #38bdf8;
-  --border: rgba(255, 255, 255, 0.2);
+    --primary: #1e293b;
+    --accent: #38bdf8;
+    --text: #f8fafc;
+    --bg: #0f172a;
+    --card-bg: #1e293b;
 }
 
-/* # LAYOUT: Global body styling */
-/* The padding-top is critical because our navigation is 'fixed' at the top. */
 body {
-  background: linear-gradient(135deg, #020617, #0f172a);
-  color: var(--text-body);
-  font-family: 'Segoe UI', sans-serif;
-  line-height: 1.8;
-  padding: 100px 20px 40px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    margin: 0;
+    line-height: 1.6;
 }
 
-/* # NAVIGATION: Fixed header styles */
-/* This ensures the menu stays visible even when the user scrolls down long research paragraphs. */
-#main-nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: #111827;
-  display: flex; 
-  justify-content: center;
-  padding: 1.2rem;
-  z-index: 1000;
-  border-bottom: 2px solid var(--accent); 
-}
-#main-nav ul { display: flex; list-style: none; gap: 20px; }
-#main-nav a { color: #fff; text-decoration: none; font-weight: 600; }
-
-/* # BOX MODEL: Image width requirement */
-/* PROFESSOR FEEDBACK: Images are set to 50% max-width so they don't overpower the text. */
-.featured-img {
-  max-width: 50%; 
-  height: auto;
-  margin: 30px auto;
-  display: block;
-  border-radius: 8px;
-  border: 1px solid var(--border);
+/* # NAVIGATION: Responsive Menu */
+nav ul {
+    list-style: none;
+    background: var(--primary);
+    padding: 1rem;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
 }
 
-/* # COMPONENTS: Card style for readability */
-/* This grouping creates a professional look and separates content from the background. */
+nav a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 12px;
+    transition: 0.3s;
+}
+
+/* # FEEDBACK FIX: Active Link Styling 
+   Highlights the current page so the user knows where they are.
+*/
+.active-link {
+    background-color: var(--accent);
+    color: var(--bg);
+    border-radius: 4px;
+    font-weight: bold;
+}
+
 .card {
-  background: var(--card-bg);
-  padding: 40px; 
-  border-radius: 12px;
-  max-width: 850px;
-  width: 100%;
-  border: 1px solid var(--border);
+    max-width: 900px;
+    margin: 2rem auto;
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 12px;
+}
+
+/* # IMAGES & TABLES: Responsive Rules */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 1rem 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+}
+
+th, td {
+    border: 1px solid #334155;
+    padding: 12px;
+    text-align: left;
+}
+
+/* # RESPONSIVE DESIGN: Media Queries for Mobile (< 768px) */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        margin: 1rem;
+        padding: 1rem;
+    }
+
+    input[type="text"], button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    background: var(--primary);
+    margin-top: 3rem;
 }
