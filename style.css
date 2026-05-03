@@ -1,6 +1,6 @@
 /* # DOCUMENTATION: Milestone 3 Responsive Styles
    NAME: Gavin Kennedy
-   PURPOSE: Implements Media Queries for mobile responsiveness and fixes layout issues.
+   PURPOSE: Implements Mobile-First design and fixes Milestone 2 layout breaks.
 */
 
 :root {
@@ -12,10 +12,11 @@
   --border: rgba(255, 255, 255, 0.2);
 }
 
+/* # GLOBAL RESET */
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /* Critical for Milestone 3 layout stability */
+  box-sizing: border-box;
 }
 
 body {
@@ -29,24 +30,24 @@ body {
   min-height: 100vh;
 }
 
-/* # NAVIGATION: Responsive Sticky Header */
+/* # NAVIGATION: Responsive Sticky Menu */
 #main-nav {
-  position: sticky; /* Keeps bar at top without overlapping content */
-  top: 0;
   width: 100%;
   background: #111827;
   display: flex; 
   justify-content: center;
   padding: 1rem;
+  border-bottom: 2px solid var(--accent);
+  position: sticky; /* Fixed overlapping issues from Milestone 2 */
+  top: 0;
   z-index: 1000;
-  border-bottom: 2px solid var(--accent); 
 }
 
 #main-nav ul { 
   display: flex; 
   list-style: none; 
-  gap: 20px; 
-  flex-wrap: wrap; /* Wraps links on small screens */
+  gap: 15px; 
+  flex-wrap: wrap; 
   justify-content: center;
 }
 
@@ -55,10 +56,9 @@ body {
   text-decoration: none; 
   font-weight: 600; 
   padding: 5px 10px;
-  transition: 0.3s;
 }
 
-/* FEEDBACK FIX: Current page highlight */
+/* Milestone 3 Requirement: Page Highlight */
 .active-link {
   color: var(--accent) !important;
   border-bottom: 2px solid var(--accent);
@@ -73,13 +73,12 @@ body {
   width: 90%; /* Fluid width for mobile */
   margin: 40px 0;
   border: 1px solid var(--border);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
-/* # MOBILE MEDIA QUERIES (Requirement 1a) */
+/* # MEDIA QUERIES: Mobile Design */
 @media (max-width: 768px) {
   #main-nav ul {
-    flex-direction: column; /* Stack menu items on phones */
+    flex-direction: column;
     align-items: center;
     gap: 10px;
   }
@@ -88,27 +87,18 @@ body {
     width: 95%;
     padding: 20px;
   }
-
-  /* Requirement 1c.4: Mobile-friendly form controls */
-  input[type="text"], button {
-    width: 100%;
-    height: 44px; /* Standard mobile tap target */
-  }
 }
 
-/* Requirement 1c.3: Responsive images and tables */
 img {
   max-width: 100%;
   height: auto;
   border-radius: 8px;
-  margin: 20px 0;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
-  overflow-x: auto; /* Handles wide tables on mobile */
-  display: block;
+  margin: 20px 0;
 }
 
 th, td {
