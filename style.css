@@ -14,7 +14,8 @@ body {
   color: var(--text-body);
   font-family: 'Segoe UI', sans-serif;
   line-height: 1.8;
-  padding: 100px 20px 40px; /* Offset for the fixed header */
+  /* CRITICAL FIX: Offset for the fixed header so content doesn't disappear underneath */
+  padding: 100px 20px 40px; 
   display: flex;
   flex-direction: column;
   align-items: center;
