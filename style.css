@@ -1,7 +1,4 @@
-/* # DOCUMENTATION: Milestone 3 Responsive Styles
-   NAME: Gavin Kennedy
-   PURPOSE: Implements responsiveness and fixes Milestone 2 layout breaks.
-*/
+/* # MILESTONE 3: RESPONSIVE ARCHITECTURE */
 
 :root {
   --bg: #020617;
@@ -9,113 +6,100 @@
   --text-header: #ffffff; 
   --text-body: #e5e7eb; 
   --accent: #38bdf8;
-  --border: rgba(255, 255, 255, 0.2);
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box; /* Ensures padding doesn't break widths */
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
   background: linear-gradient(135deg, #020617, #0f172a);
   color: var(--text-body);
   font-family: 'Segoe UI', sans-serif;
-  line-height: 1.8;
+  line-height: 1.6;
+  padding-top: 80px; /* Space for fixed nav */
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 100vh;
 }
 
-/* # NAVIGATION: Responsive Sticky Header */
+/* # NAVIGATION: Responsive Menu */
 #main-nav {
-  position: sticky; /* FIX: Replaces 'fixed' to prevent overlapping content */
+  position: fixed;
   top: 0;
   width: 100%;
   background: #111827;
-  display: flex; 
-  justify-content: center;
-  padding: 1rem;
   z-index: 1000;
-  border-bottom: 2px solid var(--accent); 
-}
-
-#main-nav ul { 
-  display: flex; 
-  list-style: none; 
-  gap: 20px; 
-  flex-wrap: wrap; /* Wraps links on small screens */
-  justify-content: center;
-}
-
-#main-nav a { 
-  color: #fff; 
-  text-decoration: none; 
-  font-weight: 600; 
-  padding: 5px 10px;
-  transition: 0.3s;
-}
-
-/* MILESTONE 3: Current page highlight */
-.active-link {
-  color: var(--accent) !important;
   border-bottom: 2px solid var(--accent);
 }
 
-/* # LAYOUT: Responsive Card */
+#main-nav ul {
+  display: flex;
+  flex-wrap: wrap; /* Allows wrapping on small screens */
+  justify-content: center;
+  list-style: none;
+  padding: 1rem;
+  gap: 15px;
+}
+
+#main-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* # LAYOUT: Flexible Container */
 .card {
   background: var(--card-bg);
-  padding: 30px; 
+  width: 90%;
+  max-width: 900px;
+  padding: 2rem;
+  margin: 20px 0;
   border-radius: 12px;
-  max-width: 850px;
-  width: 90%; 
-  margin: 40px 0;
-  border: 1px solid var(--border);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* # MOBILE MEDIA QUERIES */
-@media (max-width: 768px) {
-  #main-nav ul {
-    flex-direction: column; /* Stack menu items on phones */
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .card {
-    width: 95%;
-    padding: 20px;
-  }
-
-  /* Mobile-friendly form controls */
-  input[type="text"], 
-  button {
-    width: 100%;
-    height: 44px; /* Accessible tap target */
-    margin: 10px 0;
-  }
-}
-
+/* # RESPONSIVE IMAGES & TABLES */
 img {
   max-width: 100%;
   height: auto;
   border-radius: 8px;
-  margin: 20px 0;
+  margin: 1rem 0;
+}
+
+/* Responsive Table Container */
+.table-container {
+  overflow-x: auto; /* Adds scrollbar on mobile if table is too wide */
+  width: 100%;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
-  overflow-x: auto; /* Scrollable table on mobile */
-  display: block;
+  margin: 1rem 0;
 }
 
-footer {
-  text-align: center;
-  padding: 20px;
-  width: 100%;
-  background: #111827;
-  margin-top: auto;
+th, td {
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: left;
+}
+
+/* # MEDIA QUERIES (At least two screen sizes) */
+
+/* Desktop / Tablet (Large) */
+@media (min-width: 768px) {
+  #main-nav ul { gap: 30px; }
+  #main-nav a { font-size: 1rem; }
+  .card { padding: 3rem; }
+}
+
+/* Mobile (Small) */
+@media (max-width: 600px) {
+  #main-nav ul {
+    flex-direction: row; 
+    font-size: 0.8rem;
+  }
+  .q-box {
+    padding: 10px;
+  }
 }
