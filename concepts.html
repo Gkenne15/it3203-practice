@@ -3,30 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Evolution | Concepts</title>
+    <title>Concepts | Web Evolution</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="topic1.html">The Past</a></li>
-            <li><a href="topic2.html">The Present</a></li>
-            <li><a href="quiz.html">Quiz</a></li>
-            <li><a href="concepts.html" class="active-link">Concepts</a></li>
-            <li><a href="resources.html">Resources</a></li>
-            <li><a href="about.html">About</a></li>
-        </ul>
-    </nav>
+    <header id="main-nav">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="topic1.html">The Past</a></li>
+                <li><a href="topic2.html">The Present</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+                <li><a href="concepts.html" class="active-link">Concepts</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <main class="card">
-        <h1>Key Technical Concepts</h1>
+        <h1>Technical Concepts</h1>
         <table>
-            <tr><th>Technical Term</th><th>Evolution Impact</th></tr>
-            <tr><td>Responsive Design</td><td>Layouts that adjust dynamically to device width.</td></tr>
-            <tr><td>Flexbox</td><td>Efficient alignment of elements within a container.</td></tr>
-            <tr><td>Semantic HTML</td><td>Tags that describe the meaning of content (e.g., &lt;nav&gt;).</td></tr>
+            <thead>
+                <tr><th>Term</th><th>Definition</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><strong>Responsive Design</strong></td><td>Layout adjusts dynamically based on screen size.</td></tr>
+                <tr><td><strong>Semantic HTML</strong></td><td>Tags that convey meaning (e.g. &lt;main&gt;).</td></tr>
+            </tbody>
         </table>
     </main>
-    <footer><p>Class project for <a href="https://ksuweb.github.io/IT3203/" target="_blank">IT 3203</a></p></footer>
 </body>
 </html>
