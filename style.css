@@ -1,105 +1,88 @@
-/* # MILESTONE 3: RESPONSIVE ARCHITECTURE */
-
 :root {
   --bg: #020617;
   --card-bg: rgba(17, 24, 39, 0.95);
   --text-header: #ffffff; 
   --text-body: #e5e7eb; 
   --accent: #38bdf8;
+  --border: rgba(255, 255, 255, 0.2);
 }
-
-* { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
   background: linear-gradient(135deg, #020617, #0f172a);
   color: var(--text-body);
   font-family: 'Segoe UI', sans-serif;
-  line-height: 1.6;
-  padding-top: 80px; /* Space for fixed nav */
+  line-height: 1.8;
+  padding: 100px 20px 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* # NAVIGATION: Responsive Menu */
 #main-nav {
   position: fixed;
   top: 0;
   width: 100%;
   background: #111827;
-  z-index: 1000;
-  border-bottom: 2px solid var(--accent);
-}
-
-#main-nav ul {
-  display: flex;
-  flex-wrap: wrap; /* Allows wrapping on small screens */
+  display: flex; 
   justify-content: center;
-  list-style: none;
-  padding: 1rem;
-  gap: 15px;
+  padding: 1.2rem;
+  z-index: 1000;
+  border-bottom: 2px solid var(--accent); 
 }
 
-#main-nav a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.9rem;
-}
+#main-nav ul { display: flex; list-style: none; gap: 20px; }
+#main-nav a { color: #fff; text-decoration: none; font-weight: 600; }
+#main-nav a:hover { color: var(--accent); }
 
-/* # LAYOUT: Flexible Container */
 .card {
+  max-width: 800px;
   background: var(--card-bg);
-  width: 90%;
-  max-width: 900px;
-  padding: 2rem;
-  margin: 20px 0;
+  padding: 2.5rem;
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
-/* # RESPONSIVE IMAGES & TABLES */
-img {
-  max-width: 100%;
+h1, h2, h3 { color: var(--text-header); margin-bottom: 1.5rem; }
+
+.featured-img {
+  width: 100%;
+  max-width: 600px;
   height: auto;
   border-radius: 8px;
-  margin: 1rem 0;
-}
-
-/* Responsive Table Container */
-.table-container {
-  overflow-x: auto; /* Adds scrollbar on mobile if table is too wide */
-  width: 100%;
+  margin: 1.5rem 0;
+  border: 1px solid var(--accent);
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
-  margin: 1rem 0;
+  margin-top: 2rem;
 }
 
 th, td {
-  padding: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1rem;
   text-align: left;
+  border-bottom: 1px solid var(--border);
 }
 
-/* # MEDIA QUERIES (At least two screen sizes) */
+th { background: rgba(56, 189, 248, 0.1); color: var(--accent); }
 
-/* Desktop / Tablet (Large) */
-@media (min-width: 768px) {
-  #main-nav ul { gap: 30px; }
-  #main-nav a { font-size: 1rem; }
-  .card { padding: 3rem; }
+.q-box {
+  background: rgba(255,255,255,0.05);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
 }
 
-/* Mobile (Small) */
-@media (max-width: 600px) {
-  #main-nav ul {
-    flex-direction: row; 
-    font-size: 0.8rem;
-  }
-  .q-box {
-    padding: 10px;
-  }
+button {
+  background: var(--accent);
+  color: #000;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
 }
+
+footer { margin-top: 3rem; opacity: 0.7; font-size: 0.9rem; }
