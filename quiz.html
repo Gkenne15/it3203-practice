@@ -13,7 +13,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="topic1.html">The Past</a></li>
                 <li><a href="topic2.html">The Present</a></li>
-                <li><a href="quiz.html" class="active-link">Quiz</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
                 <li><a href="concepts.html">Concepts</a></li>
                 <li><a href="resources.html">Resources</a></li>
                 <li><a href="about.html">About</a></li>
@@ -24,23 +24,45 @@
     <main class="card">
         <h2>Self-Assessment Quiz</h2>
         <form id="quizForm">
-            <div class="q-box" style="margin-bottom: 20px;">
+            <div class="q-box">
                 <p>1. In the 1990s, developers used HTML _______ to create grids.</p>
-                <input type="text" id="ans1" placeholder="Type here...">
+                <input type="text" id="ans1" class="form-control">
             </div>
 
-            <div class="q-box" style="margin-bottom: 20px;">
+            <div class="q-box">
                 <p>2. What was the bandwidth limit for most 1999 users?</p>
                 <input type="radio" name="q2" value="dialup"> Dial-up (56kbps)<br>
                 <input type="radio" name="q2" value="fiber"> Fiber Optics
             </div>
 
-            <button type="button" onclick="gradeQuiz()" style="padding: 10px 20px; background: var(--accent); color: #000; border: none; font-weight: bold; border-radius: 5px; cursor: pointer;">Submit Quiz</button>
+            <div class="q-box">
+                <p>3. Which CSS tool is used for modern responsive layouts?</p>
+                <input type="radio" name="q3" value="flexbox"> Flexbox<br>
+                <input type="radio" name="q3" value="frames"> Framesets
+            </div>
+
+            <div class="q-box">
+                <p>4. Modern design prioritizes what over text density?</p>
+                <input type="radio" name="q4" value="whitespace"> Whitespace<br>
+                <input type="radio" name="q4" value="popups"> Pop-up Ads
+            </div>
+
+            <div class="q-box">
+                <p>5. Modern Responsive design works on (Select two):</p>
+                <input type="checkbox" name="q5" value="mobile"> Smartphones<br>
+                <input type="checkbox" name="q5" value="desktop"> Desktop Monitors<br>
+                <input type="checkbox" name="q5" value="pager"> 90s Pagers
+            </div>
+
+            <div style="margin-top: 20px;">
+                <button type="button" onclick="gradeQuiz()">Submit Quiz</button>
+                <button type="reset">Reset</button>
+            </div>
         </form>
 
-        <div id="quizResults" style="display:none; margin-top:30px; padding:20px; border:1px solid var(--accent); border-radius:8px;">
-            <h3 id="passFail"></h3> 
-            <p id="finalScore"></p> 
+        <div id="quizResults" style="display:none; margin-top: 20px; border-top: 2px solid var(--accent);">
+            <h3 id="passFail"></h3>
+            <p id="finalScore"></p>
             <div id="details"></div>
         </div>
     </main>
