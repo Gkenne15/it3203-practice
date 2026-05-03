@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Knowledge Check | Quiz</title>
+    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -23,28 +23,32 @@
 
     <main class="card">
         <h2>Self-Assessment Quiz</h2>
+        
         <form id="quizForm">
             <div class="q-box">
                 <p>1. In the 1990s, developers used HTML _______ to create grids.</p>
-                <input type="text" id="ans1" class="form-control">
+                <input type="text" id="ans1" placeholder="Type here...">
             </div>
 
             <div class="q-box">
                 <p>2. What was the bandwidth limit for most 1999 users?</p>
                 <input type="radio" name="q2" value="dialup"> Dial-up (56kbps)<br>
-                <input type="radio" name="q2" value="fiber"> Fiber Optics
+                <input type="radio" name="q2" value="fiber"> Fiber Optics<br>
+                <input type="radio" name="q2" value="5g"> 5G Mobile
             </div>
 
             <div class="q-box">
                 <p>3. Which CSS tool is used for modern responsive layouts?</p>
                 <input type="radio" name="q3" value="flexbox"> Flexbox<br>
-                <input type="radio" name="q3" value="frames"> Framesets
+                <input type="radio" name="q3" value="frames"> Framesets<br>
+                <input type="radio" name="q3" value="blink"> Blink tags
             </div>
 
             <div class="q-box">
                 <p>4. Modern design prioritizes what over text density?</p>
                 <input type="radio" name="q4" value="whitespace"> Whitespace<br>
-                <input type="radio" name="q4" value="popups"> Pop-up Ads
+                <input type="radio" name="q4" value="popups"> Pop-up Ads<br>
+                <input type="radio" name="q4" value="tables"> Table layouts
             </div>
 
             <div class="q-box">
@@ -54,16 +58,12 @@
                 <input type="checkbox" name="q5" value="pager"> 90s Pagers
             </div>
 
-            <div style="margin-top: 20px;">
-                <button type="button" onclick="gradeQuiz()">Submit Quiz</button>
-                <button type="reset">Reset</button>
-            </div>
+            <button type="button" onclick="gradeQuiz()">Submit Quiz</button>
+            <button type="reset" onclick="hideResults()">Reset</button>
         </form>
 
-        <div id="quizResults" style="display:none; margin-top: 20px; border-top: 2px solid var(--accent);">
-            <h3 id="passFail"></h3>
-            <p id="finalScore"></p>
-            <div id="details"></div>
+        <div id="quizResults" class="result-area" style="display:none;">
+            <h3 id="passFail"></h3> <p id="finalScore"></p> <div id="details"></div>
         </div>
     </main>
     <script src="quiz.js"></script>
