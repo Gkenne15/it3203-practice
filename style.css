@@ -1,37 +1,24 @@
-/* # DOCUMENTATION: Milestone 3 Master Stylesheet
-   PURPOSE: Fixes layout breaks by using a reset and strict box-modeling.
-*/
+/* # DOCUMENTATION: Milestone 3 - Sturdy Responsive Layout */
 
-/* 1. RESET & BOX MODELING - This prevents the "broken" layout look */
+/* 1. Global Reset */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Ensures padding doesn't break widths */
-}
-
-:root {
-    --primary: #1e293b;
-    --accent: #38bdf8;
-    --text: #f8fafc;
-    --bg: #0f172a;
-    --card-bg: #1e293b;
+    box-sizing: border-box;
 }
 
 body {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    background-color: var(--bg);
-    color: var(--text);
+    font-family: sans-serif;
+    background-color: #0f172a;
+    color: #f8fafc;
     line-height: 1.6;
 }
 
-/* 2. NAVIGATION BAR - Fixed Top Bar */
+/* 2. Navigation Bar - Simple & Solid */
 header#main-nav {
-    background-color: var(--primary);
+    background-color: #1e293b;
+    border-bottom: 3px solid #38bdf8;
     width: 100%;
-    border-bottom: 2px solid var(--accent);
-    position: sticky; /* Keeps it at the top when scrolling */
-    top: 0;
-    z-index: 1000;
 }
 
 nav ul {
@@ -43,99 +30,41 @@ nav ul {
 
 nav a {
     display: block;
-    color: var(--text);
+    color: white;
     text-decoration: none;
     padding: 15px 20px;
-    font-weight: 500;
-    transition: 0.3s;
+    font-weight: bold;
 }
 
-nav a:hover {
-    background-color: #334155;
-}
-
-/* The Active Page Highlight */
+/* Active Link Highlight */
 .active-link {
-    background-color: var(--accent) !important;
-    color: var(--bg) !important;
-    font-weight: bold !important;
+    background-color: #38bdf8;
+    color: #0f172a !important;
 }
 
-/* 3. MAIN CONTENT - The Card */
+/* 3. The Main Content Card */
 .card {
-    max-width: 900px;
-    width: 95%; /* Responsive width */
-    margin: 40px auto;
-    background: var(--card-bg);
+    max-width: 800px;
+    width: 90%;
+    margin: 40px auto; /* Centers the box */
+    background-color: #1e293b;
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
-h1, h2, h3 {
-    margin-bottom: 20px;
-    color: var(--accent);
-}
-
-p { margin-bottom: 15px; }
-
-/* 4. IMAGES & TABLES - No Overflows */
-img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin: 20px 0;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-}
-
-th, td {
-    border: 1px solid #444;
-    padding: 12px;
-    text-align: left;
-}
-
-/* 5. QUIZ FORM STYLING */
-.q-box {
-    margin-bottom: 20px;
-    padding: 15px;
-    background: rgba(255,255,255,0.05);
-    border-radius: 8px;
-}
-
-button {
-    background: var(--accent);
-    color: var(--bg);
-    border: none;
-    padding: 12px 24px;
-    border-radius: 6px;
-    font-weight: bold;
-    cursor: pointer;
-    font-size: 1rem;
-}
-
-/* 6. MOBILE RESPONSIVE (Phones) */
-@media (max-width: 768px) {
+/* 4. Responsive Media Query */
+@media (max-width: 600px) {
     nav ul {
         flex-direction: column;
     }
     nav a {
         text-align: center;
-        border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-    .card {
-        padding: 20px;
-        margin: 20px auto;
+        border-bottom: 1px solid #334155;
     }
 }
 
 footer {
     text-align: center;
     padding: 30px;
-    background: var(--primary);
-    margin-top: 50px;
 }
