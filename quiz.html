@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz | Web Evolution</title>
+    <title>Knowledge Check | Quiz</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -24,17 +24,23 @@
     <main class="card">
         <h2>Self-Assessment Quiz</h2>
         <form id="quizForm">
-            <p>1. In the 1990s, developers used HTML _______?</p>
-            <input type="text" id="ans1" placeholder="Type here...">
+            <div class="q-box" style="margin-bottom: 20px;">
+                <p>1. In the 1990s, developers used HTML _______ to create grids.</p>
+                <input type="text" id="ans1" placeholder="Type here...">
+            </div>
 
-            <p>2. Bandwidth for 1999 users?</p>
-            <input type="radio" name="q2" value="dialup"> Dial-up (56kbps)<br>
-            <input type="radio" name="q2" value="fiber"> Fiber<br>
+            <div class="q-box" style="margin-bottom: 20px;">
+                <p>2. What was the bandwidth limit for most 1999 users?</p>
+                <input type="radio" name="q2" value="dialup"> Dial-up (56kbps)<br>
+                <input type="radio" name="q2" value="fiber"> Fiber Optics
+            </div>
 
-            <button type="button" onclick="gradeQuiz()" style="margin-top:20px;">Submit</button>
+            <button type="button" onclick="gradeQuiz()" style="padding: 10px 20px; background: var(--accent); color: #000; border: none; font-weight: bold; border-radius: 5px; cursor: pointer;">Submit Quiz</button>
         </form>
-        <div id="quizResults" style="display:none; margin-top:20px;">
-            <h3 id="passFail"></h3>
+
+        <div id="quizResults" style="display:none; margin-top:30px; padding:20px; border:1px solid var(--accent); border-radius:8px;">
+            <h3 id="passFail"></h3> 
+            <p id="finalScore"></p> 
             <div id="details"></div>
         </div>
     </main>
