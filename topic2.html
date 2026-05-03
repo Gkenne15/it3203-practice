@@ -2,31 +2,39 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Evolution | The Present</title>
+    <title>The Present | Web Evolution</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="topic1.html">The Past</a></li>
-            <li><a href="topic2.html" class="active-link">The Present</a></li>
-            <li><a href="quiz.html">Quiz</a></li>
-            <li><a href="concepts.html">Concepts</a></li>
-            <li><a href="resources.html">Resources</a></li>
-            <li><a href="about.html">About</a></li>
-        </ul>
-    </nav>
+    <header id="main-nav">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="topic1.html">The Past</a></li>
+                <li><a href="topic2.html" class="active-link">The Present</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+                <li><a href="concepts.html">Concepts</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <main class="card">
-        <h1>The Modern Responsive Web</h1>
-        <p>Today, web design is "Mobile-First." Using CSS Flexbox and Grid, websites are built to be fluid, automatically adjusting their layout to fit smartphones, tablets, and massive desktop monitors.</p>
-        <p>Semantic HTML5 now provides meaning to content, improving accessibility for screen readers and SEO. Pages load in milliseconds thanks to optimized assets and high-speed fiber-optic connections.</p>
+        <h1>Modern Responsive Architecture</h1>
+        <p>Modern design has transitioned to a philosophy of fluidity. The "Mobile-First" approach is now standard. Developers build starting with the smallest screen size and use CSS Media Queries to add complexity for desktops. This ensures a consistent brand experience across watch screens and 4K TVs.</p>
         
-        <p>Modern Frameworks and Preprocessors like SASS have revolutionized the workflow. We now use variables, nesting, and components to keep code "DRY" (Don't Repeat Yourself), allowing for massive websites to be updated from a single central style file.</p>
+        <img src="modern-web.jpg" alt="Responsive Design Example">
         
-        <p>Furthermore, User Experience (UX) has become the primary focus. Beyond just looking good, modern sites prioritize "Core Web Vitals," which measure how quickly a page becomes interactive and how stable the layout remains during loading.</p>
+        <p>CSS Flexbox and Grid were catalysts for this change. These models allow elements to shrink and grow based on space. Unlike the 90s, where centering an item was difficult, modern CSS makes multi-directional layouts accessible. This has allowed for creative designs that were impossible two decades ago.</p>
+
+        <p>Performance has become a critical design pillar. Modern web standards prioritize lazy-loading and responsive image formats to ensure sites remain fast on mobile data connections. This focus on "Core Web Vitals" ensures that high-quality visual design does not come at the cost of usability.</p>
+
+        <p>User Experience (UX) now extends beyond visuals to include deep accessibility. By utilizing Semantic HTML and ARIA labels, modern developers ensure that content is navigable by screen readers and assistive technologies, fulfilling the original promise of a truly universal World Wide Web.</p>
     </main>
-    <footer><p>Class project for <a href="https://ksuweb.github.io/IT3203/" target="_blank">IT 3203</a></p></footer>
+
+    <footer>
+        <p>Class project for <a href="https://ksuweb.github.io/IT3203/" target="_blank">IT 3203</a></p>
+    </footer>
 </body>
 </html>
