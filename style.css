@@ -1,70 +1,125 @@
-/* # DOCUMENTATION: Milestone 3 - Sturdy Responsive Layout */
+/* # DOCUMENTATION: Milestone 3 Responsive Styles
+   PURPOSE: Implements Mobile-First design and fixes Milestone 2 layout issues.
+*/
 
-/* 1. Global Reset */
+:root {
+  --bg: #020617;
+  --card-bg: rgba(17, 24, 39, 0.95);
+  --text-header: #ffffff; 
+  --text-body: #e5e7eb; 
+  --accent: #38bdf8;
+  --border: rgba(255, 255, 255, 0.2);
+}
+
+/* # GLOBAL RESET */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: sans-serif;
-    background-color: #0f172a;
-    color: #f8fafc;
-    line-height: 1.6;
+  background: linear-gradient(135deg, #020617, #0f172a);
+  color: var(--text-body);
+  font-family: 'Segoe UI', sans-serif;
+  line-height: 1.8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
 }
 
-/* 2. Navigation Bar - Simple & Solid */
-header#main-nav {
-    background-color: #1e293b;
-    border-bottom: 3px solid #38bdf8;
-    width: 100%;
+/* # NAVIGATION: Responsive Menu */
+#main-nav {
+  width: 100%;
+  background: #111827;
+  display: flex; 
+  justify-content: center;
+  padding: 1rem;
+  border-bottom: 2px solid var(--accent);
+  position: sticky; /* Keeps it visible at top without breaking layout */
+  top: 0;
+  z-index: 1000;
 }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+#main-nav ul { 
+  display: flex; 
+  list-style: none; 
+  gap: 15px; 
+  flex-wrap: wrap; 
+  justify-content: center;
 }
 
-nav a {
-    display: block;
-    color: white;
-    text-decoration: none;
-    padding: 15px 20px;
-    font-weight: bold;
+#main-nav a { 
+  color: #fff; 
+  text-decoration: none; 
+  font-weight: 600; 
+  padding: 5px 10px;
 }
 
-/* Active Link Highlight */
+/* FEEDBACK FIX: Current page highlight */
 .active-link {
-    background-color: #38bdf8;
-    color: #0f172a !important;
+  color: var(--accent) !important;
+  border-bottom: 2px solid var(--accent);
 }
 
-/* 3. The Main Content Card */
+/* # LAYOUT: Responsive Card */
 .card {
-    max-width: 800px;
-    width: 90%;
-    margin: 40px auto; /* Centers the box */
-    background-color: #1e293b;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  background: var(--card-bg);
+  padding: 30px; 
+  border-radius: 12px;
+  max-width: 850px;
+  width: 90%; /* Responsive width for mobile */
+  margin: 40px 0;
+  border: 1px solid var(--border);
 }
 
-/* 4. Responsive Media Query */
-@media (max-width: 600px) {
-    nav ul {
-        flex-direction: column;
-    }
-    nav a {
-        text-align: center;
-        border-bottom: 1px solid #334155;
-    }
+/* # IMAGES & TABLES: Milestone 3 Best Practices */
+img {
+  max-width: 100%; /* Prevents images from overflowing on mobile */
+  height: auto;
+  margin: 20px auto;
+  display: block;
+  border-radius: 8px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+th, td {
+  border: 1px solid var(--border);
+  padding: 10px;
+  text-align: left;
+}
+
+/* # MEDIA QUERIES: Design for Mobile Screens */
+@media (max-width: 768px) {
+  #main-nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .card {
+    width: 95%;
+    padding: 20px;
+  }
+
+  /* Make Quiz inputs easier to tap */
+  input[type="text"], button {
+    width: 100%;
+    margin-bottom: 10px;
+    height: 44px; /* Mobile tap target size */
+  }
 }
 
 footer {
-    text-align: center;
-    padding: 30px;
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+  background: #111827;
+  margin-top: auto;
 }
